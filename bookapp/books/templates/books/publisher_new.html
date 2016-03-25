@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block style %}
+  {{ block.super }}
+{% endblock %}
+
+{% block branding %}<h1>Publisher Administration</h1>{% endblock %}
+{% block content %}
+<div id="content" class="colM">
+  <h1>Add Publisher</h1>
+<div id="content-main">
+  <form action="." class="ajax" method="post">
+    {% csrf_token %}
+    <div>
+      <fieldset class="module aligned ">
+        <h2>Publishers</h2>
+        <div class="form-row">
+           <div>
+            {{ form.name.label_tag }}
+            {{ form.name }}
+            {{ form.name.errors }}
+          </div>
+        </div>
+        <div class="form-row">
+          <div>
+            {{ form.address.label_tag }}
+            {{ form.address }}
+            {{ form.address.errors }}
+          </div>
+        </div>
+        <div class="form-row">
+          <div>
+            {{ form.city.label_tag }}
+            {{ form.city }}
+            {{ form.city.errors }}
+          </div>
+        </div>
+        <div class="form-row">
+          <div>
+            {{ form.state_province.label_tag }}
+            {{ form.state_province }}
+            {{ form.state_province.errors }}
+          </div>
+        </div>
+      </fieldset>
+    </div>
+    <input type="submit" value="Submit" />
+  </form>
+</div>
+</div>
+{% endblock %}
+{% block javascript %}
+  <script src="{% static 'js/jquery.js' %}"></script>
+  <script src="{% static 'js/app.js' %}"></script>
+{% endblock %}
+
